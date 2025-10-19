@@ -1,6 +1,7 @@
 package com.example.crud.api.demo.dao;
 
 import com.example.crud.api.demo.entity.Employee;
+import com.example.crud.api.demo.rest.EmployeeRestController;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,23 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         List<String>  employees = theQuery.getResultList();
         // return the result
         return employees;
+    }
+
+    @Override
+    public Employee findByName(String name) {
+        // get Employee
+        Employee theEmployee = entityManager.find(Employee.class, name);
+        //return Employee
+        return theEmployee;
+    }
+
+    @Override
+    public Employee save(Employee theEmployee) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(int theId) {
+
     }
 }
