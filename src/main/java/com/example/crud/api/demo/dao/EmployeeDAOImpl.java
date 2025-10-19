@@ -29,4 +29,14 @@ public class EmployeeDAOImpl implements EmployeeDAO{
         // return the result
         return employees;
     }
+
+    @Override
+    public List<String> findEmployee() {
+        // create a query
+        TypedQuery<String> theQuery = entityManager.createQuery("SELECT e.firstName FROM Employee e", String.class);
+        // execute query and get result of fist Name of the Employees
+        List<String>  employees = theQuery.getResultList();
+        // return the result
+        return employees;
+    }
 }
